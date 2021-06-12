@@ -16,20 +16,16 @@ namespace KidsSP.Controllers
             {
                 string username = parent.FirstName[0] + parent.LastName;
                 string parentPassword = Guid.NewGuid().ToString().Substring(0, 8);
-                DatabaseController.RegisterParent(
-                    username,
-                    parent.FirstName, 
-                    parent.LastName, 
-                    parent.PhoneNumber,
-                    parent.Email,
-                    parent.DateOfBirth, 
-                    parentPassword);
+
+                parent.PasswordHash = PasswordHasher.HashPassword(parentPassword);
+                parent.Username = username;
             }
             DatabaseController.RegisterFamilyUnit(familyUnit);
+            //TODO: Add some sort of notification service to send the parent username and password details
         }
         public static void RejectFamilyUnit(FamilyUnit familyUnit)
         {
-            //TODO: Add registration status checking
+            DatabaseController.RejectFamilyUnit(familyUnit);
         }
     }
 }

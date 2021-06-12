@@ -15,5 +15,6 @@ namespace KidsSP.Database
         }
         public DbSet<User> Users { get; set; }
         public DbSet<FamilyUnit> FamilyUnits { get; set; }
+        public DbSet<FamilyUnitStatus> FamilyUnitStatuses { get; set; }
     }
 }

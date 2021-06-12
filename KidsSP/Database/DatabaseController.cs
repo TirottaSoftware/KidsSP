@@ -1,4 +1,5 @@
 ﻿using KidsSP.Models;
+using KidsSP.Models.Enum;
 using KidsSP.Models.Users;
 using System;
 using System.Collections.Generic;
@@ -14,16 +15,40 @@ namespace KidsSP.Database
         {
             ApplicationDbContext db = new ApplicationDbContext();
             db.FamilyUnits.Add(familyUnit);
+            var unit = db.FamilyUnitStatuses.FirstOrDefault(u => u.Id == familyUnit.Id);
+            if (unit != null)
+            {
+                unit.Status = RegistrationStatus.Approved.ToString();
+            }
+            else
+            {
+                db.FamilyUnitStatuses.Add(new FamilyUnitStatus(familyUnit, RegistrationStatus.Approved));
+            }
             db.SaveChanges();
         }
-        public static void RegisterParent(string username, string firstName, string lastName, string phoneNr, string email, DateTime dob, string password)
+        public static void RejectFamilyUnit(FamilyUnit familyUnit)
         {
             ApplicationDbContext db = new ApplicationDbContext();
-            string hashedPassword = PasswordHasher.HashPassword(password);
-
-            User user = new Parent(username,firstName, lastName, phoneNr, email, dob , hashedPassword);
-            db.Users.Add(user);
+            var unit = db.FamilyUnitStatuses.FirstOrDefault(u => u.Id == familyUnit.Id);
+            if (unit != null)
+            {
+                unit.Status = RegistrationStatus.Rejected.ToString();
+            }
+            else
+            {
+                db.FamilyUnitStatuses.Add(new FamilyUnitStatus(familyUnit, RegistrationStatus.Rejected));
+            }
             db.SaveChanges();
+        }
+        public static string GetFamilyUnitStatus(string familyUnitName)
+        {
+            ApplicationDbContext db = new ApplicationDbContext();
+            var unit = db.FamilyUnitStatuses.FirstOrDefault(s => s.FamilyUnit.FamilyUnitName == familyUnitName);
+            if (unit == null)
+            {
+                return $"Family Unit not found";
+            }
+            return unit.Status;
         }
     }
 }

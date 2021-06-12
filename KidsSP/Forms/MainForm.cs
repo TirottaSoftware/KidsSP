@@ -1,5 +1,6 @@
 ﻿using KidsSP.Database;
 using KidsSP.Models;
+using KidsSP.Models.Enum;
 using KidsSP.Models.Users;
 using System;
 using System.Collections.Generic;
@@ -39,6 +40,10 @@ namespace KidsSP
                         this.Hide();
                         adminForm.Show();
                     }
+                    else if (user.GetType().Name == nameof(Parent))
+                    {
+                        //Open parent dashboard
+                    }
                 }
                 else
                     MessageBox.Show("Invalid credentials");
@@ -54,18 +59,27 @@ namespace KidsSP
             RegisterFamilyUnitForm registerFamilyUnitForm = new RegisterFamilyUnitForm();
             this.Hide();
             registerFamilyUnitForm.ShowDialog();
-            //string hashedPassword = PasswordHasher.HashPassword(tbxPassword.Text);
-            //string username = tbxUsername.Text;
-            //string email = username + "@gmail.com";
-
-            //User user = new Admin(username, email, hashedPassword);
-            //db.Users.Add(user);
-            //db.SaveChanges();
         }
 
         private void MainForm_FormClosed(object sender, FormClosedEventArgs e)
         {
             Application.Exit();
+        }
+
+        private void btnCheckStatus_Click(object sender, EventArgs e)
+        {
+            string familyUnitName = tbxFamilyUnitName.Text;
+            string status = DatabaseController.GetFamilyUnitStatus(familyUnitName);
+            lblFamilyUnitStatus.Text = status;
+            if (status == RegistrationStatus.Approved.ToString())
+            {
+                lblFamilyUnitStatus.ForeColor = Color.Green;
+            }
+            else
+            {
+                lblFamilyUnitStatus.ForeColor = Color.Red;
+            }
+            lblFamilyUnitStatus.Visible = true;
         }
     }
 }

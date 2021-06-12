@@ -1,4 +1,5 @@
 ﻿using KidsSP.Models;
+using KidsSP.Models.Users;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -23,14 +24,43 @@ namespace KidsSP
             {
                 return false;
             }
-            //foreach (var child in familyUnit.Children)
-            //{
-            //    //if(!ValidateChild(child)) throw
-            //}
-            //foreach (var parent in familyUnit.Parents)
-            //{
-            //    //if(!ValidateParent(parent)) throw
-            //}
+            foreach (var child in familyUnit.Children)
+            {
+                if (!ValidateChild(child))
+                {
+                    return false;
+                }
+            }
+            foreach (var parent in familyUnit.Parents)
+            {
+                if (!ValidateParent(parent))
+                {
+                    return false;
+                }
+            }
+            return true;
+        }
+        public static bool ValidateChild(Child child)
+        {
+            if (String.IsNullOrEmpty(child.FirstName) || String.IsNullOrEmpty(child.LastName))
+            {
+                return false;
+            }
+            if (child.DateOfBirth > DateTime.Now)
+            {
+                return false;
+            }
+            return true;
+        }
+        private static bool ValidateParent(Parent parent)
+        {
+            if (String.IsNullOrEmpty(parent.FirstName) || 
+                String.IsNullOrEmpty(parent.LastName) || 
+                String.IsNullOrEmpty(parent.PhoneNumber) || 
+                String.IsNullOrEmpty(parent.Email))
+            {
+                return false;
+            }
             return true;
         }
     }

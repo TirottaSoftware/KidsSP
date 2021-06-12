@@ -20,3 +20,5 @@ C:\Users\Cristian\source\repos\KidsSP\KidsSP\obj\Debug\KidsSP.RegisterFamilyUnit
 C:\Users\Cristian\source\repos\KidsSP\KidsSP\obj\Debug\KidsSP.Migrations.addedFamilyUnits.resources
 C:\Users\Cristian\source\repos\KidsSP\KidsSP\obj\Debug\KidsSP.Migrations.UpdatedFamilyUnitCollections.resources
 C:\Users\Cristian\source\repos\KidsSP\KidsSP\obj\Debug\KidsSP.Migrations.UpdatedParentConstructor.resources
+C:\Users\Cristian\source\repos\KidsSP\KidsSP\obj\Debug\KidsSP.Migrations.AddedStatusChecking.resources
+C:\Users\Cristian\source\repos\KidsSP\KidsSP\obj\Debug\KidsSP.Migrations.UpdatedStatusValueType.resources

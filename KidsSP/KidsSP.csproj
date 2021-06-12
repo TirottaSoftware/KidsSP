@@ -91,9 +91,19 @@
     <Compile Include="Migrations\202106110642150_UpdatedParentConstructor.designer.cs">
       <DependentUpon>202106110642150_UpdatedParentConstructor.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202106120713563_AddedStatusChecking.cs" />
+    <Compile Include="Migrations\202106120713563_AddedStatusChecking.designer.cs">
+      <DependentUpon>202106120713563_AddedStatusChecking.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202106120719553_UpdatedStatusValueType.cs" />
+    <Compile Include="Migrations\202106120719553_UpdatedStatusValueType.designer.cs">
+      <DependentUpon>202106120719553_UpdatedStatusValueType.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Child.cs" />
+    <Compile Include="Models\Enum\RegistrationStatus.cs" />
     <Compile Include="Models\FamilyUnit.cs" />
+    <Compile Include="Models\FamilyUnitStatus.cs" />
     <Compile Include="Models\Users\User.cs" />
     <Compile Include="Models\Users\Admin.cs" />
     <Compile Include="Models\Users\Parent.cs" />
@@ -128,6 +138,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202106110642150_UpdatedParentConstructor.resx">
       <DependentUpon>202106110642150_UpdatedParentConstructor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202106120713563_AddedStatusChecking.resx">
+      <DependentUpon>202106120713563_AddedStatusChecking.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202106120719553_UpdatedStatusValueType.resx">
+      <DependentUpon>202106120719553_UpdatedStatusValueType.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

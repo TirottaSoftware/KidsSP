@@ -35,6 +35,10 @@ namespace KidsSP
             this.lblPassword = new System.Windows.Forms.Label();
             this.tbxPassword = new System.Windows.Forms.TextBox();
             this.lblRegister = new System.Windows.Forms.Label();
+            this.lblFamilyUnitName = new System.Windows.Forms.Label();
+            this.tbxFamilyUnitName = new System.Windows.Forms.TextBox();
+            this.btnCheckStatus = new System.Windows.Forms.Button();
+            this.lblFamilyUnitStatus = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // tbxUsername
@@ -100,11 +104,56 @@ namespace KidsSP
             this.lblRegister.Text = "Regsiter Family Unit";
             this.lblRegister.Click += new System.EventHandler(this.lblRegister_Click);
             // 
+            // lblFamilyUnitName
+            // 
+            this.lblFamilyUnitName.AutoSize = true;
+            this.lblFamilyUnitName.Font = new System.Drawing.Font("MS PGothic", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblFamilyUnitName.Location = new System.Drawing.Point(304, 30);
+            this.lblFamilyUnitName.Name = "lblFamilyUnitName";
+            this.lblFamilyUnitName.Size = new System.Drawing.Size(161, 21);
+            this.lblFamilyUnitName.TabIndex = 7;
+            this.lblFamilyUnitName.Text = "Family Unit Name";
+            // 
+            // tbxFamilyUnitName
+            // 
+            this.tbxFamilyUnitName.BackColor = System.Drawing.SystemColors.Window;
+            this.tbxFamilyUnitName.Font = new System.Drawing.Font("MS PGothic", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbxFamilyUnitName.Location = new System.Drawing.Point(308, 54);
+            this.tbxFamilyUnitName.Name = "tbxFamilyUnitName";
+            this.tbxFamilyUnitName.Size = new System.Drawing.Size(266, 28);
+            this.tbxFamilyUnitName.TabIndex = 6;
+            // 
+            // btnCheckStatus
+            // 
+            this.btnCheckStatus.Font = new System.Drawing.Font("MS PGothic", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCheckStatus.Location = new System.Drawing.Point(308, 83);
+            this.btnCheckStatus.Name = "btnCheckStatus";
+            this.btnCheckStatus.Size = new System.Drawing.Size(266, 30);
+            this.btnCheckStatus.TabIndex = 8;
+            this.btnCheckStatus.Text = "Check Family Unit Status";
+            this.btnCheckStatus.UseVisualStyleBackColor = true;
+            this.btnCheckStatus.Click += new System.EventHandler(this.btnCheckStatus_Click);
+            // 
+            // lblFamilyUnitStatus
+            // 
+            this.lblFamilyUnitStatus.AutoSize = true;
+            this.lblFamilyUnitStatus.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblFamilyUnitStatus.Location = new System.Drawing.Point(304, 116);
+            this.lblFamilyUnitStatus.Name = "lblFamilyUnitStatus";
+            this.lblFamilyUnitStatus.Size = new System.Drawing.Size(147, 24);
+            this.lblFamilyUnitStatus.TabIndex = 9;
+            this.lblFamilyUnitStatus.Text = "FamilyUnitStatus";
+            this.lblFamilyUnitStatus.Visible = false;
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(288, 157);
+            this.ClientSize = new System.Drawing.Size(587, 157);
+            this.Controls.Add(this.lblFamilyUnitStatus);
+            this.Controls.Add(this.btnCheckStatus);
+            this.Controls.Add(this.lblFamilyUnitName);
+            this.Controls.Add(this.tbxFamilyUnitName);
             this.Controls.Add(this.lblRegister);
             this.Controls.Add(this.lblPassword);
             this.Controls.Add(this.tbxPassword);
@@ -127,6 +176,10 @@ namespace KidsSP
         private System.Windows.Forms.Label lblPassword;
         private System.Windows.Forms.TextBox tbxPassword;
         private System.Windows.Forms.Label lblRegister;
+        private System.Windows.Forms.Label lblFamilyUnitName;
+        private System.Windows.Forms.TextBox tbxFamilyUnitName;
+        private System.Windows.Forms.Button btnCheckStatus;
+        private System.Windows.Forms.Label lblFamilyUnitStatus;
     }
 }
 
