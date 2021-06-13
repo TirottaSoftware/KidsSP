@@ -1,4 +1,5 @@
-﻿using KidsSP.Models;
+﻿using KidsSP.Database;
+using KidsSP.Models;
 using KidsSP.Models.Users;
 using System;
 using System.Collections.Generic;
@@ -20,11 +21,11 @@ namespace KidsSP.Controllers
         }
         public void UpdateParent(Parent parent, Parent updatedParent)
         {
-            //DBController.UpdateUser(parent, updatedParent);
+            DatabaseController.UpdateParent(parent, updatedParent);
         }
         public void UpdateChild(Child child, Child updatedChild)
         {
-            //DBController.UpdateChild(child, updatedChild);
+            DatabaseController.UpdateChild(child, updatedChild);
         }
         public void UpdateFamilyUnit(FamilyUnit unit, FamilyUnit updatedFamilyUnit)
         {

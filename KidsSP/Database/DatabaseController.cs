@@ -40,6 +40,24 @@ namespace KidsSP.Database
             }
             db.SaveChanges();
         }
+        public static void UpdateChild(Child child, Child updatedChild)
+        {
+            ApplicationDbContext db = new ApplicationDbContext();
+            Child c = db.FamilyUnits.First(u => u.Id == child.FamilyUnitId).Children.FirstOrDefault(x => x.Id == child.Id);
+            c.FirstName = updatedChild.FirstName;
+            c.LastName = updatedChild.LastName;   
+            db.SaveChanges();
+        }
+        public static void UpdateParent(Parent parent, Parent updatedParent)
+        {
+            ApplicationDbContext db = new ApplicationDbContext(); 
+            Parent p = (Parent)db.Users.FirstOrDefault(x => x.Id == parent.Id);
+            p.FirstName = updatedParent.FirstName;
+            p.LastName = updatedParent.LastName;
+            p.Email = updatedParent.Email;
+            p.PhoneNumber = updatedParent.PhoneNumber;
+            db.SaveChanges();
+        }
         public static string GetFamilyUnitStatus(string familyUnitName)
         {
             ApplicationDbContext db = new ApplicationDbContext();
@@ -47,7 +65,7 @@ namespace KidsSP.Database
             if (unit == null)
             {
                 return $"Family Unit not found";
-            }
+            } 
             return unit.Status;
         }
     }
